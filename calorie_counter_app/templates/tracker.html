@@ -40,6 +40,7 @@
                     <p class="font-semibold text-gray-800">{{ item.name }}</p>
                     <p class="text-sm text-gray-500">{{ item.calories }} kcal</p>
                 </div>
+                <a href="{% url 'delete_food' item.id %}" class="text-sm text-red-500 hover:underline">Delete</a>
             </li>
             {% endfor %}
         </ul>
