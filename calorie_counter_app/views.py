@@ -1,7 +1,8 @@
-from django.shortcuts import render,redirect
+from django.shortcuts import render,redirect,get_object_or_404
 from django.db.models import Sum
 from .models import FoodItem
 from .forms import FoodItemForm
+
 
 # Create your views here.
 def tracker(request):
@@ -22,3 +23,8 @@ def tracker(request):
         'total_calories': total_calories,
     }
     return render(request, 'tracker.html', context)
+
+def delete_food(request, item_id):
+    item = get_object_or_404(FoodItem, id=item_id)
+    item.delete()
+    return redirect('tracker')
