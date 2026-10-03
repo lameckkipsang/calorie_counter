@@ -6,13 +6,17 @@ class FoodItemForm(forms.ModelForm):
         model = FoodItem
         fields = ['name', 'calories']
         widgets = {
-            'name': forms.TextInput(attrs={
+            'name': forms.TextInput(
+                attrs={
                 'class': 'w-full p-2 border border-gray-300 rounded focus:outline-none focus:border-blue-500',
                 'placeholder': 'e.g., Apple'
-            }),
-            'calories': forms.NumberInput(attrs={
+                }
+            ),
+            'calories': forms.NumberInput(
+                attrs={
                 'class': 'w-full p-2 border border-gray-300 rounded focus:outline-none focus:border-blue-500',
                 'placeholder': 'e.g., 95',
                 'min': '0'
-            }),
+                }
+            ),
         }

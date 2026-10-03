@@ -28,3 +28,8 @@ def delete_food(request, item_id):
     item = get_object_or_404(FoodItem, id=item_id)
     item.delete()
     return redirect('tracker')
+
+def reset_tracker(request):
+    if request.method == 'POST':
+        FoodItem.objects.all().delete()
+    return redirect('tracker')
